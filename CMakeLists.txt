@@ -7,7 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_subdirectory(tests)
 add_subdirectory(stress_test)
 
-add_executable(main main.cpp)
+add_executable(main main.cpp
+    UI/main_menu_UI.cpp)
 
 target_include_directories(main PUBLIC
     ${CMAKE_SOURCE_DIR}
