@@ -170,40 +170,40 @@ public:
     }
 };
 
-Complex operator+(double first, const Complex &second) {
+inline Complex operator+(double first, const Complex &second) {
     return Complex(second.GetRe() + first, second.GetIm());
 }
-Complex operator-(double first, const Complex &second) {
+inline Complex operator-(double first, const Complex &second) {
     return Complex(second.GetRe() - first, second.GetIm());
 }
-Complex operator*(double first, const Complex &second) {
+inline Complex operator*(double first, const Complex &second) {
     return Complex(second.GetRe() * first, second.GetIm() * first);
 }
-Complex operator/(double first, const Complex &second) {
+inline Complex operator/(double first, const Complex &second) {
     return Complex(second.GetRe() / first, second.GetIm() / first);
 }
 
-bool operator==(double first, const Complex &second) {
+inline bool operator==(double first, const Complex &second) {
     return second.GetRe() == first && second.GetIm() == 0;
 }
-bool operator!=(double first, const Complex &second) {
+inline bool operator!=(double first, const Complex &second) {
     return !(second == first);
 }
-bool operator>=(double first, const Complex &second) {
+inline bool operator>=(double first, const Complex &second) {
     return first >= second.GetMod();
 }
-bool operator<=(double first, const Complex &second) {
+inline bool operator<=(double first, const Complex &second) {
     return first <= second.GetMod();
 }
-bool operator>(double first, const Complex &second) {
+inline bool operator>(double first, const Complex &second) {
     return first > second.GetMod();
 }
-bool operator<(double first, const Complex &second) {
+inline bool operator<(double first, const Complex &second) {
     return first < second.GetMod();
 }
 
 
-std::istream& operator>>(std::istream& is, Complex& c) {
+inline std::istream& operator>>(std::istream& is, Complex& c) {
     char open, comma, close;
     double real = 0.0, imag = 0.0;
 
@@ -237,7 +237,7 @@ std::istream& operator>>(std::istream& is, Complex& c) {
     return is;
 }
 
-std::ostream& operator<<(std::ostream& os, const Complex& c) {
+inline std::ostream& operator<<(std::ostream& os, const Complex& c) {
     os << "(" << c.GetRe() << ", " << c.GetIm() << ")";
     return os;
 }

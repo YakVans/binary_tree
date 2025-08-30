@@ -7,7 +7,7 @@
 #include "manual_read.h"
 #include "assign_UI.h"
 
-void MainMenuUI() {
+inline void MainMenuUI() {
     while (true) {
         std::cout << "--- Main menu ---\n"
             "\n"

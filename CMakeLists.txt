@@ -11,5 +11,6 @@ add_executable(main main.cpp)
 
 target_include_directories(main PUBLIC
     ${CMAKE_SOURCE_DIR}
+    ${CMAKE_SOURCE_DIR}/complex_numbers
     ${CMAKE_SOURCE_DIR}/UI
 )

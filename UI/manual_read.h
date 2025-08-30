@@ -11,25 +11,25 @@
 
 template <typename T>
 DynamicArray<T> *string_to_values(const std::string& str) {
-    std::istringstream iss(str);
+    std::stringstream iss;
+    iss << str << " 0";
     DynamicArray<T> *result = new DynamicArray<T>();
     T value;
     
     while (iss >> value) {
         result->InsertAt(result->GetSize(), value);
     }
-    if (iss.fail() && !iss.eof()) {
-        iss.clear();
-        char c;
-        if (iss >> c) {
-            delete result;
-            throw InvalidInput(str,
-                "Non-numeric characters detected or\n"
-                "Number is too big/small");
-        }
+
+    if (iss.eof()) {
+        if (result->GetSize() != 0) result->RemoveAt(result->GetSize() - 1);
+        return result;
     }
-    
-    return result;
+    else {
+        delete result;
+        throw InvalidInput(str,
+            "Non-numeric characters detected or\n"
+            "Number is too big/small");
+    }
 }
 
 template <typename T>
